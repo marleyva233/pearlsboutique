@@ -1,0 +1,50 @@
+/*
+[0]GENERAL
+[1]NAVIGATION
+[2]HEADER
+[3]MAIN CONTENT
+[4]FOOTER
+[4]MEDIA QUERIES
+*/
+
+/*[0]GENERAL*/
+h1{
+	font-family: 'Rouge Script', cursive;
+}
+
+body{
+	font-size:14px;
+	font-family: 'Open Sans', sans-serif;
+}
+
+/*[1]NAVIGATION*/
+i{
+	font-size: 18px;
+}
+
+/*[2]HEADER*/
+#carousel{
+	min-height: 250px;
+	height:380px;
+	overflow: hidden;
+}
+
+/*[3] MAIN CONTENT*/
+.fa-heart:hover{
+	color:red;
+}
+/*[4] FOOTER*/
+li{
+	padding: 1%;
+	display: inline;
+	list-style: none;
+}
+li a {
+	font-size: 12px;
+	color:#000;
+}
+li a:hover{
+	color:#000;
+	text-decoration: underline;
+}
+/*[5] MEDIA QUERIES*/
