@@ -88,7 +88,10 @@ function handleItem(id) {
 	   addToCart(id);
 	   updateButton(id, "Remove from cart", "btn-danger btn p-1");
 	}
+	
+document.getElementById("cartItems").innerText=cart.length;
 }
+
 
 //pushes the ids to the cart array
 function addToCart(id) {
@@ -111,13 +114,4 @@ function cartContains(id) {
 function updateButton(id, newText, classes){
 	document.getElementById("button"+id).innerText=newText;
 	document.getElementById("button"+id).className=classes;
-}
-
-
-
-
-//when clicking the cart button this runs
-function showItems(){
-	alert("You have "+cart.length +" items in your cart. Proceed to checkout?");
-	return false;
 }
