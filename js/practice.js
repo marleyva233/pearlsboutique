@@ -1,40 +1,33 @@
-// a oa  klloohh
-k, English + logic
-// btw, this is not regular pseudo code - it's just some thoughts written out mixed as free-form and tabbed/indentated to look like code
 
-
-
+// this is not a normal cart behaviour
+// the intention is to prove how adding and removing works
+// not
 function handleItem(id) {
-    if (cart.indexOf(id) > -1) {
+    if (cartContains(id)) {
        removeFromCart(id);
-       updateButton(id, "Add to cart");
+       updateButton(id, "Add to cart", "btn p-1 btn-warning");
     } else {
        addToCart(id);
-       updateButton(id, "Remove from cart");
+       updateButton(id, "Remove from cart", "btn-danger btn p-1");
     }
 }
-       
+
+//pushes the ids to the cart array
 function addToCart(id) {
-    var index = cart.indexOf(id);
-    if (index > -1) {
-        cart = cart.slice(index, 1);
-    }
+    cart.push(id);
 }
 
-function doThese() {
-    console.log("Today is Friday");
-    console.log("Weekend, baby!");
-    
-    var stuff = []; //  an array
-    stuff.push("bla");
-    console.log(stuff);
+//removes the item from the cart array
+function removeFromCart(id) {
+    cart.splice(cart.indexOf(id), 1);
 }
 
-doThese();
-// it will output the two messages in the console and the content of the "stuff" array
+function cartContains(id) {
+    return cart.indexOf(id) > -1;
+}
 
-// run these in your console, and you'll see what I meant
-var items = [3, 5, 8, 14, 29];
-console.log("What index does have 3 in the items array?", items.indexOf(3));
-console.log("What index does have 14 in the items array?", items.indexOf(14));
-console.log("What index does have 30 in the items array?", items.indexOf(30));
+function updateButton(id, newText, class) {
+    document.getElementById("button" + id).innerText = "newText";
+    document.getElementById("button" + id).className = "class";
+}
+
