@@ -107,11 +107,11 @@ function cartContains(id) {
 	return cart.indexOf(id) > -1;
 }
 
-// function updateButton(id, newText, class){
-//	 var button=document.getElementById("button"+id).innerText=newText;
-//	 	button.className = class;
-// }
 function updateButton(id, newText, classes){
 	document.getElementById("button"+id).innerText=newText;
 	document.getElementById("button"+id).className=classes;
+}
+
+function showItems(){
+	alert("You have " +cart.length+ " items in your cart. Proceed to checkout?");
 }
