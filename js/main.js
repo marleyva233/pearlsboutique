@@ -44,14 +44,12 @@
 for (var i=0; i<boutiqueItems.length; i++){
 	var itemArea=document.createElement("div");
 		itemArea.className="col-sm-12 col-md-5 col-lg-3 mx-auto pb-5";
-		itemArea.id=boutiqueItems[i].id+[i];
+		itemArea.id=boutiqueItems[i].id;
 		
-
 	var itemImage=document.createElement("img");
 		itemImage.src=boutiqueItems[i].image;
 		itemImage.className="w-100";
 		itemImage.alt=boutiqueItems[i].description;
-
 
 	var itemDetails=document.createElement("div");
 		itemDetails.innerHTML="<i class='far fa-heart p-1'></i><br>";
@@ -64,10 +62,6 @@ for (var i=0; i<boutiqueItems.length; i++){
 		button.className="btn btn-warning";
 		button.setAttribute("onclick", "handleItem("+i+")");
 		button.id="button"+[i];
-
-
-
-	
 
 	var boutiqueDisplay=document.getElementById("items");
 
@@ -91,7 +85,6 @@ function handleItem(id) {
 	
 document.getElementById("cartItems").innerText=cart.length;
 }
-
 
 //pushes the ids to the cart array
 function addToCart(id) {
