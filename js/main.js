@@ -48,7 +48,7 @@ for (var i=0; i<boutiqueItems.length; i++){
 		
 	var itemImage=document.createElement("img");
 		itemImage.src=boutiqueItems[i].image;
-		itemImage.className="w-100";
+		itemImage.className="w-100 image";
 		itemImage.alt=boutiqueItems[i].description;
 
 	var itemDetails=document.createElement("div");

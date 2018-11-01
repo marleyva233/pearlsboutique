@@ -33,6 +33,10 @@ i{
 .fa-heart:hover{
 	color:red;
 }
+.image:hover{
+	transform:scale(1.1);
+	filter:brightness(110%);
+}
 /*[4] FOOTER*/
 li{
 	padding: 1%;
