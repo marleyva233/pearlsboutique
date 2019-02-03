@@ -42,8 +42,8 @@ for (var i = 0; i < boutiqueItems.length; i++) {
 		item.innerHTML += "<span>Size: " + boutiqueItems[i].size + "</span>";
 		item.innerHTML += "<span>Price: " + boutiqueItems[i].price + "$</span>";
 		item.innerHTML += "<button class='btn btn-warning' id='button"+ i +"' onclick='handleItem("+i+")'>Add to Cart</button>";
-	var boutiqueDisplay = document.getElementById("items");
-		boutiqueDisplay.appendChild(item);
+	var boutique = document.getElementById("items");
+		boutique.appendChild(item);
 }
 var cart = [];
 function handleItem(id) {
@@ -70,5 +70,9 @@ function updateButton(id, newText, classes) {
 	document.getElementById("button" + id).className = classes;
 }
 function showItems() {
-	alert("You have "  + cart.length + " items in your cart. Proceed to checkout?");
+	if (cart.length === 1){
+		alert("You have 1 item in your cart. Proceed to checkout?");
+	} else {
+		alert("You have "  + cart.length + " items in your cart. Proceed to checkout?");
+	}
 }
