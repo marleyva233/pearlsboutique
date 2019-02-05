@@ -28,6 +28,7 @@ i{
 	color:red;
 }
 .image:hover{
+	display: block;
 	transform:scale(1.1);
 	filter:brightness(110%);
 }
@@ -46,6 +47,16 @@ li a:hover{
 	text-decoration: underline;
 }
 
-span{
+span,
+i{
 	display: block;
+}
+#checkout img{
+	width: 50%;
+}
+h4{
+	padding-bottom: 5%;
+}
+#checkout{
+	display: inline;
 }

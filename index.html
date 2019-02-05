@@ -20,7 +20,7 @@
 	<body>
 		<!-- starting navigation -->
 		<nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light animated fadeIn">
-		  <i class="fas fa-shopping-cart" onclick="showItems()"><span id="cartItems" class="badge badge-secondary"></span></i>
+		  <i class="fas fa-shopping-cart"><span id="cartItems" class="badge badge-secondary" onclick="viewItems();"></span></i>
 		  <a class="navbar-brand" href="#"></a>
 		  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 		    <span class="navbar-toggler-icon"></span>
@@ -48,7 +48,7 @@
 		</nav>
 		<!-- ending navigation -->
 		<!-- starting the header -->
-		<div class="container-fluid pt-5">
+		<div class="container-fluid pt-5" id="mainContent">
 			<div class="row pt-2">
 				<div class="col-11 mx-auto text-center">
 					<h1>Pearl's Boutique</h1>
@@ -77,6 +77,10 @@
 			</div>
 		</div>
 		<!-- ending main content -->
+		<div class="container-fluid">
+			<div id="checkout" class="row">
+			</div>
+		</div>
 		<!-- starting footer -->
 		<footer>
 			<div class="container-fluid bg-light pt-2">
@@ -99,6 +103,6 @@
 		<!-- makes bootstrap 4 js work -->
 		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
 		<!-- my custom js -->
-		<script type="text/javascript" src="js/new.js"></script>
+		<script type="text/javascript" src="js/main.js"></script>
 	</body>
 </html>
