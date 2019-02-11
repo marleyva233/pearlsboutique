@@ -57,6 +57,6 @@ i{
 h4{
 	padding-bottom: 5%;
 }
-#checkout{
-	display: inline;
+.invis{
+	display: none;
 }

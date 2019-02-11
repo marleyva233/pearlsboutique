@@ -35,7 +35,7 @@ for (var i = 0; i < boutiqueItems.length; i++) {
 	var item = document.createElement("div");
 		item.className = "col-sm-12 col-md-5 col-lg-3 mx-auto pb-5";
 		item.id = boutiqueItems[i].id; 
-		item.innerHTML += "<img src='"+ boutiqueItems[i].image +"' class='image' alt='"+ boutiqueItems[i].description +"'> ";
+		item.innerHTML += "<img src='"+ boutiqueItems[i].image +"' class='image w-100' alt='"+ boutiqueItems[i].description +"'> ";
 		item.innerHTML += "<span>Description: " + boutiqueItems[i].description + "</span>";
 		item.innerHTML += "<span>Size: " + boutiqueItems[i].size + "</span>";
 		item.innerHTML += "<span>Price: " + boutiqueItems[i].price + "$</span>";
@@ -69,35 +69,29 @@ function updateButton(id, newText, classes) {
 }
 var itemsHTML=[];
 var itemsTotal=0;
-function viewItems(){
-	var total=document.createElement("div");
-	var newItems=document.createElement("div");
-	var checkout=document.getElementById("checkout");
-		checkout.style.display="inline";
-	document.getElementById("items").style.display="none";
-	document.getElementById("mainContent").style.display="none";
-	for (var i=0; i<cart.length; i++){
-		if (cart.includes(document.getElementById("item")+cart[i].innerHTML)){
-			return false;
+function viewItems() {
+	document.getElementById("checkout").classList.remove("invis");
+	var total=document.getElementById("itemTotals");
+	var newItems=document.getElementById("itemDetails");
+	document.getElementById("items").classList.add("invis");
+	document.getElementById("mainContent").classList.add("invis");
+	if (cart.includes(document.getElementById("item")+cart[i])){
+			continue;
 		}
+	for (var i=0; i<cart.length; i++){
 		itemsHTML.push(document.getElementById("item"+cart[i]).innerHTML);
 	}
-		newItems.classList.add("col-8");
 		newItems.innerHTML="<h4>Shopping Cart</h4>";
 	for (var j=0; j<itemsHTML.length; j++){
 		newItems.innerHTML+= "<div class='pb-3'>"+itemsHTML[j]+ "</div>";
 	}
-		total.style.display="inline";
-		total.classList.add("col-4");
 		total.innerHTML+="<h6>Order Summary:</h6><span>Items: "+ cart.length+"</span>";
 		total.innerHTML+="<hr><span>Order Total: "+ 100 +"$</span><span>Shipping: Free</span>";
 		total.innerHTML+="<span>Tax: 0.00$</span><span>Order Total: 100$</span>";
 		total.innerHTML+="<button onclick='keepShopping();'>keep shopping</button>";
-		checkout.appendChild(newItems);
-		checkout.appendChild(total);
 }
 function keepShopping() {
-	document.getElementById("items").style.display="block";
-	document.getElementById("mainContent").style.display="block";
-	document.getElementById("checkout").style.display="none";
+	document.getElementById("items").classList.remove("invis");
+	document.getElementById("mainContent").classList.remove("invis");
+	document.getElementById("checkout").classList.add("invis");
 }
