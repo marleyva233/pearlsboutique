@@ -38,8 +38,8 @@ for (var i = 0; i < boutiqueItems.length; i++) {
 		item.innerHTML += "<img src='"+ boutiqueItems[i].image +"' class='image w-100' alt='"+ boutiqueItems[i].description +"'> ";
 		item.innerHTML += "<span>Description: " + boutiqueItems[i].description + "</span>";
 		item.innerHTML += "<span>Size: " + boutiqueItems[i].size + "</span>";
-		item.innerHTML += "<span>Price: " + boutiqueItems[i].price + "$</span>";
-		item.innerHTML += "<button class='btn btn-warning' id='button"+ i +"' onclick='handleItem("+i+")'>Add to Cart</button>";
+		item.innerHTML += "<span>Price: " + boutiqueItems[i].price + "$</span>"; 
+		item.innerHTML += "<button class='btn btn-warning' id='button" + i + "' onclick='handleItem(" + i + ")'>Add to Cart</button>";
 	var boutique = document.getElementById("items");
 		boutique.appendChild(item);
 }
@@ -67,25 +67,24 @@ function updateButton(id, newText, classes) {
 	document.getElementById("button" + id).innerText = newText;
 	document.getElementById("button" + id).className = classes;
 }
-var itemsHTML=[];
-var itemsTotal=0;
 function viewItems() {
+	var itemsHTML = [];
 	document.getElementById("checkout").classList.remove("invis");
-	var total=document.getElementById("itemTotals");
-	var newItems=document.getElementById("itemDetails");
+	var total = document.getElementById("itemTotals");
+	var newItems = document.getElementById("itemDetails");
 	document.getElementById("items").classList.add("invis");
 	document.getElementById("mainContent").classList.add("invis");
-	for (var i=0; i<cart.length; i++){
-		itemsHTML.push(document.getElementById("item"+cart[i]).innerHTML);
+	for (var i = 0; i < cart.length; i++){
+		itemsHTML.push(document.getElementById("item" + cart[i]).innerHTML);
 	}
-		newItems.innerHTML="<h4>Shopping Cart</h4>";
-	for (var j=0; j<itemsHTML.length; j++){
-		newItems.innerHTML+= "<div class='pb-3'>"+itemsHTML[j]+ "</div>";
+		newItems.innerHTML = "<h4>Shopping Cart</h4>";
+	for (var j = 0; j < itemsHTML.length; j++){
+		newItems.innerHTML += "<div class='pb-3'>" + itemsHTML[j] + "</div>";
 	}
-		total.innerHTML+="<h6>Order Summary:</h6><span>Items: "+ cart.length+"</span>";
-		total.innerHTML+="<hr><span>Order Total: "+ 100 +"$</span><span>Shipping: Free</span>";
-		total.innerHTML+="<span>Tax: 0.00$</span><span>Order Total: 100$</span>";
-		total.innerHTML+="<button onclick='keepShopping();'>keep shopping</button>";
+		total.innerHTML = "<h6>Order Summary:</h6><span>Items: " + cart.length + "</span>";
+		total.innerHTML += "<hr><span>Order Total: " + 100 + "$</span><span>Shipping: Free</span>";
+		total.innerHTML += "<span>Tax: 0.00$</span><span>Order Total: 100$</span>";
+		total.innerHTML += "<button onclick='keepShopping();'>keep shopping</button>";
 }
 function keepShopping() {
 	document.getElementById("items").classList.remove("invis");
