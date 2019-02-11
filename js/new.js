@@ -75,9 +75,6 @@ function viewItems() {
 	var newItems=document.getElementById("itemDetails");
 	document.getElementById("items").classList.add("invis");
 	document.getElementById("mainContent").classList.add("invis");
-	if (cart.includes(document.getElementById("item")+cart[i])){
-			continue;
-		}
 	for (var i=0; i<cart.length; i++){
 		itemsHTML.push(document.getElementById("item"+cart[i]).innerHTML);
 	}
