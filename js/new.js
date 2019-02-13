@@ -72,7 +72,6 @@ function show(id) {
 }
 function viewCart() {
 	show("checkout");
-	var total = document.getElementById("itemTotals");
 	var newItems = document.getElementById("itemDetails");
 	hide("items");
 	hide("mainContent");
@@ -80,10 +79,12 @@ function viewCart() {
 	for (var i = 0; i < cart.length; i++) {
 		newItems.innerHTML += document.getElementById("item" + cart[i]).outerHTML.replace('id="item', 'id="cart-item');
 	}
-	total.innerHTML = "<h6>Order Summary:</h6><span>Items: " + cart.length + "</span>";
-	total.innerHTML += "<hr><span>Order Total: " + 100 + "$</span><span>Shipping: Free</span>";
-	total.innerHTML += "<span>Tax: 0.00$</span><span>Order Total: 100$</span>";
-	total.innerHTML += "<button onclick='keepShopping();'>keep shopping</button>";
+	document.getElementById("totalItems").innerHTML = cart.length;
+	var total = 0;
+	for (var j = 0; j < cart.length; j++) {
+		total += boutiqueItems[cart[j]].price;
+	}
+	document.getElementById("totalDollars").innerHTML = total+ "$";
 }
 function keepShopping() {
 	show("items");
