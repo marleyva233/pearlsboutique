@@ -56,6 +56,7 @@ function addToCart(id) {
 function removeFromCart(id) {
 	cart.splice(cart.indexOf(id), 1);
 	document.getElementById("cart-item" + id).remove();
+	getPrice();
 }
 function cartContains(id) {
 	return cart.indexOf(id) > -1;
@@ -70,6 +71,17 @@ function hide(id) {
 function show(id) {
 	document.getElementById(id).classList.remove("invis");
 }
+function getPrice() {
+	document.getElementById("totalItems").innerHTML = cart.length;
+	var total = 0;
+	for (var j = 0; j < cart.length; j++) {
+		total += boutiqueItems[cart[j]].price;
+	}
+	document.getElementById("totalDollars").innerHTML = total+ "$";
+	var tax = Math.round((total * 0.0725)*100)/100;
+	document.getElementById("tax").innerHTML = tax + "$";
+	document.getElementById("orderTotal").innerHTML = total + tax + "$";
+}
 function viewCart() {
 	show("checkout");
 	var newItems = document.getElementById("itemDetails");
@@ -79,12 +91,7 @@ function viewCart() {
 	for (var i = 0; i < cart.length; i++) {
 		newItems.innerHTML += document.getElementById("item" + cart[i]).outerHTML.replace('id="item', 'id="cart-item');
 	}
-	document.getElementById("totalItems").innerHTML = cart.length;
-	var total = 0;
-	for (var j = 0; j < cart.length; j++) {
-		total += boutiqueItems[cart[j]].price;
-	}
-	document.getElementById("totalDollars").innerHTML = total+ "$";
+	getPrice();
 }
 function keepShopping() {
 	show("items");
