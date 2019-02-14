@@ -56,7 +56,7 @@ function addToCart(id) {
 function removeFromCart(id) {
 	cart.splice(cart.indexOf(id), 1);
 	document.getElementById("cart-item" + id).remove();
-	getPrice();
+	updatePrice();
 }
 function cartContains(id) {
 	return cart.indexOf(id) > -1;
@@ -71,7 +71,7 @@ function hide(id) {
 function show(id) {
 	document.getElementById(id).classList.remove("invis");
 }
-function getPrice() {
+function updatePrice() {
 	document.getElementById("totalItems").innerHTML = cart.length;
 	var total = 0;
 	for (var j = 0; j < cart.length; j++) {
@@ -82,19 +82,28 @@ function getPrice() {
 	document.getElementById("tax").innerHTML = tax + "$";
 	document.getElementById("orderTotal").innerHTML = total + tax + "$";
 }
+// function viewCart() {
+// 	show("checkout");
+// 	var newItems = document.getElementById("itemDetails");
+// 	hide("mainContent");
+// 	newItems.innerHTML = "<h4>Shopping Cart</h4>";
+// 	for (var i = 0; i < cart.length; i++) {
+// 		newItems.innerHTML += document.getElementById("item" + cart[i]).outerHTML.replace('id="item', 'id="cart-item');
+// 	}
+// 	updatePrice();
+// }
 function viewCart() {
 	show("checkout");
 	var newItems = document.getElementById("itemDetails");
-	hide("items");
 	hide("mainContent");
-	newItems.innerHTML = "<h4>Shopping Cart</h4>";
+	newItems.innerHTML = "<h4>Shopping Cart</h4><table id='thead'><tr><td>Items</td><td>description</td><td>price</td><td>remove from cart</td></tr></table>";
 	for (var i = 0; i < cart.length; i++) {
-		newItems.innerHTML += document.getElementById("item" + cart[i]).outerHTML.replace('id="item', 'id="cart-item');
+		newItems.innerHTML += "<table class='w-100'><tr id='cart-item"+cart[i]+"'><td><img class='thumb' src='"+ boutiqueItems[cart[i]].image + "'><td>" + boutiqueItems[cart[i]].description+"<br> Size: "+ boutiqueItems[cart[i]].size +"</td><td>"+ boutiqueItems[cart[i]].price +"</td><td><button class='btn-warning' id='button" + cart[i] + "' onclick='handleItem("+ cart[i] + ");'>remove item</button></td></tr></table>";
+		// newItems.innerHTML += document.getElementById("item" + cart[i]).outerHTML.replace('id="item', 'id="cart-item');
 	}
-	getPrice();
+	updatePrice();
 }
 function keepShopping() {
-	show("items");
 	show("mainContent");
 	hide("checkout");
 }

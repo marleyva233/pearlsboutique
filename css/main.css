@@ -51,12 +51,22 @@ span,
 i{
 	display: block;
 }
-#checkout img{
-	width: 50%;
-}
 h4{
 	padding-bottom: 5%;
 }
 .invis{
 	display: none;
+}
+.thumb{
+	width: 100px;
+}
+td,
+#thead td{
+	width: 20%;
+}
+#thead{
+	width: 100%;
+	background-color: #f4e8c2;
+	padding: 2%;
+	margin-bottom: 3%;
 }
