@@ -8,10 +8,10 @@ function Item(description, image, price, size, id) {
 	boutiqueItems.push(this);
 }
 //the dresses
-new Item("Long lace sleveless dress", "https://img.etsystatic.com/il/d8dd1d/525727544/il_570xN.525727544_8d35.jpg?version=3", 150, 6, "item0");
-new Item("Long sleeve lace dress with layered skirt", "https://img.etsystatic.com/il/844c86/553403966/il_570xN.553403966_62iv.jpg?version=2", 199, 4, "item1");
-new Item("Short sleeve lace dress", "https://i.etsystatic.com/6697588/r/il/e38c1c/492015170/il_570xN.492015170_17u3.jpg", 140, 8, "item2");
-new Item("White lace dress with lace top", "https://img.etsystatic.com/il/f920c1/514962741/il_570xN.514962741_jl0k.jpg?version=2", 140, 4,"item3");			
+new Item("Long sleveless dress made from lace, lace trim, satin and jersey.", "https://img.etsystatic.com/il/d8dd1d/525727544/il_570xN.525727544_8d35.jpg?version=3", 150, 6, "item0");
+new Item("Long sleeve dress made from lace, lining, and tulle flowers.", "https://img.etsystatic.com/il/844c86/553403966/il_570xN.553403966_62iv.jpg?version=2", 199, 4, "item1");
+new Item("Short sleeve dress made with lace.", "https://i.etsystatic.com/6697588/r/il/e38c1c/492015170/il_570xN.492015170_17u3.jpg", 140, 8, "item2");
+new Item("White dress made with satin, French lace, and silk duopioni.", "https://img.etsystatic.com/il/f920c1/514962741/il_570xN.514962741_jl0k.jpg?version=2", 140, 4,"item3");			
 //tiaras
 new Item("Pastel colored rose crown", "https://img.etsystatic.com/il/d00f01/1504792144/il_570xN.1504792144_lw30.jpg?version=0", 40, "one size fits all", "item4");
 new Item("Gold diamond tiara", "https://img.etsystatic.com/il/0e27cf/686844752/il_570xN.686844752_4ubz.jpg?version=0", 249, "one size fits all", "item5");
@@ -82,24 +82,20 @@ function updatePrice() {
 	document.getElementById("tax").innerHTML = tax + "$";
 	document.getElementById("orderTotal").innerHTML = total + tax + "$";
 }
-// function viewCart() {
-// 	show("checkout");
-// 	var newItems = document.getElementById("itemDetails");
-// 	hide("mainContent");
-// 	newItems.innerHTML = "<h4>Shopping Cart</h4>";
-// 	for (var i = 0; i < cart.length; i++) {
-// 		newItems.innerHTML += document.getElementById("item" + cart[i]).outerHTML.replace('id="item', 'id="cart-item');
-// 	}
-// 	updatePrice();
-// }
 function viewCart() {
 	show("checkout");
 	var newItems = document.getElementById("itemDetails");
 	hide("mainContent");
-	newItems.innerHTML = "<h4>Shopping Cart</h4><table id='thead'><tr><td>Items</td><td>description</td><td>price</td><td>remove from cart</td></tr></table>";
+	var heading = "<table><th><h4>Shopping Cart</h4></th></table><table id='thead'><tr><td>Items</td><td>description</td><td>price</td><td>remove from cart</td></tr></table>";
+	newItems.innerHTML += heading;
 	for (var i = 0; i < cart.length; i++) {
-		newItems.innerHTML += "<table class='w-100'><tr id='cart-item"+cart[i]+"'><td><img class='thumb' src='"+ boutiqueItems[cart[i]].image + "'><td>" + boutiqueItems[cart[i]].description+"<br> Size: "+ boutiqueItems[cart[i]].size +"</td><td>"+ boutiqueItems[cart[i]].price +"</td><td><button class='btn-warning' id='button" + cart[i] + "' onclick='handleItem("+ cart[i] + ");'>remove item</button></td></tr></table>";
-		// newItems.innerHTML += document.getElementById("item" + cart[i]).outerHTML.replace('id="item', 'id="cart-item');
+		var table= "<table class='w-100'><tr id='cart-item" + cart[i];
+		table += "'><td><img class='thumb' src='" + boutiqueItems[cart[i]].image;
+		table += "'></td><td>" + boutiqueItems[cart[i]].description + "<br> Size: ";
+		table += boutiqueItems[cart[i]].size + "</td><td>"+ boutiqueItems[cart[i]].price;
+		table += "</td><td><button class='btn-warning' id='button" + cart[i];
+		table += "' onclick='handleItem("+ cart[i] + ");'>remove item</button></td></tr></table>";
+		newItems.innerHTML += table;
 	}
 	updatePrice();
 }
