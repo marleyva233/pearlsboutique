@@ -95,7 +95,7 @@ function viewCart() {
 		table += "'><td><img class='thumb' src='" + boutiqueItems[cart[i]].image;
 		table += "'></td><td>" + boutiqueItems[cart[i]].description + "<br> Size: ";
 		table += boutiqueItems[cart[i]].size + "</td><td>"+ boutiqueItems[cart[i]].price;
-		table += "</td><td><button class='btn-warning' id='button" + cart[i];
+		table += "$</td><td><button class='btn-warning' id='button" + cart[i];
 		table += "' onclick='handleItem("+ cart[i] + ");'>remove item</button></td></tr></table>";
 		newItems.innerHTML += table;
 	}
@@ -105,5 +105,5 @@ function keepShopping() {
 	show("cartItems");
 	show("mainContent");
 	hide("checkout");
-	document.getElementById("itemDetails").innerHTML="";
+	document.getElementById("itemDetails").innerHTML = "";
 }
