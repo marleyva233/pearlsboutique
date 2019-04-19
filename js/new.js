@@ -83,13 +83,15 @@ function updatePrice() {
 	document.getElementById("orderTotal").innerHTML = total + tax + "$";
 }
 function viewCart() {
+	hide("cartItems");
 	show("checkout");
 	var newItems = document.getElementById("itemDetails");
 	hide("mainContent");
 	var heading = "<table><th><h4>Shopping Cart</h4></th></table><table id='thead'><tr><td>Items</td><td>description</td><td>price</td><td>remove from cart</td></tr></table>";
 	newItems.innerHTML += heading;
 	for (var i = 0; i < cart.length; i++) {
-		var table= "<table class='w-100'><tr id='cart-item" + cart[i];
+		var table="";
+		table= "<table class='w-100'><tr id='cart-item" + cart[i];
 		table += "'><td><img class='thumb' src='" + boutiqueItems[cart[i]].image;
 		table += "'></td><td>" + boutiqueItems[cart[i]].description + "<br> Size: ";
 		table += boutiqueItems[cart[i]].size + "</td><td>"+ boutiqueItems[cart[i]].price;
@@ -100,6 +102,8 @@ function viewCart() {
 	updatePrice();
 }
 function keepShopping() {
+	show("cartItems");
 	show("mainContent");
 	hide("checkout");
+	document.getElementById("itemDetails").innerHTML="";
 }
